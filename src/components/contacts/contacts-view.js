@@ -1,6 +1,12 @@
 
 Contacts.view = function (ctrl) {
   var vm = Contacts.vm;
+
+  var removeAnchor = function(idx){
+    if(vm.contacts().length >= 2){
+      return m('a', {onclick: ctrl.remove.curry(idx), href: '#'}, 'Remove Attendee')
+    }
+  }
   return m('.contacts', [
     m('h3', 'Enter your contact info:'),
     vm.contacts().map(function(contact, idx){
@@ -10,7 +16,8 @@ Contacts.view = function (ctrl) {
         m('input[type=text]', {value: contact.name()}),
         m('br'),
         m('label', "Email:"),
-        m('input[label=email]', {value: contact.email()})
+        m('input[label=email]', {value: contact.email()}),
+        removeAnchor()
       ])
     }),
     m('a', {onclick: ctrl.add, href: '#'}, 'Add an Attendee')

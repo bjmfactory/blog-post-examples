@@ -13,10 +13,16 @@ Contacts.view = function (ctrl) {
       return m('fieldset', [
         m('legend', "Attendee #" + (idx + 1)),
         m('label', "Name:"),
-        m('input[type=text]', {value: contact.name()}),
+        m('input[type=text]', {
+          value: contact.name(),
+          onchange: m.withAttr('value', contact.name)
+        }),
         m('br'),
         m('label', "Email:"),
-        m('input[label=email]', {value: contact.email()}),
+        m('input[label=email]', {
+          value: contact.email(),
+          onchange: m.withAttr('value', contact.email)
+        }),
         removeAnchor()
       ])
     }),

@@ -2,12 +2,14 @@
 Contacts = {}
 
 Contacts.model = function () {
-  // Model code goes here
+  this.name = m.prop('[your name]');
+  this.email = m.prop('[your email]');
 };
 
-Contacts.vm = {}
+Contacts.vm = {
+  contacts: m.prop([new Contacts.model()])
+}
 
 Contacts.controller = function () {
-  // Controller code goes here
   var ctrl = this;
 }

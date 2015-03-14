@@ -11,5 +11,15 @@ Contacts.vm = {
 }
 
 Contacts.controller = function () {
+  var vm = Contacts.vm
   var ctrl = this;
+
+  ctrl.add = function(){
+    var newModel = new Contacts.model()
+    vm.contacts().push(newModel)
+  }
+
+  ctrl.remove = function(idx){
+    vm.contacts().splice(idx, 1)
+  }
 }

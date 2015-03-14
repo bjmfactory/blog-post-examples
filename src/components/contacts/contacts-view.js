@@ -1,5 +1,5 @@
 
-Contacts.view = function () {
+Contacts.view = function (ctrl) {
   var vm = Contacts.vm;
   return m('.contacts', [
     m('h3', 'Enter your contact info:'),
@@ -12,6 +12,7 @@ Contacts.view = function () {
         m('label', "Email:"),
         m('input[label=email]', {value: contact.email()})
       ])
-    })
+    }),
+    m('a', {onclick: ctrl.add, href: '#'}, 'Add an Attendee')
   ])
 }

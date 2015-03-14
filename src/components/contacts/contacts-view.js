@@ -23,7 +23,7 @@ Contacts.view = function (ctrl) {
           value: contact.email(),
           onchange: m.withAttr('value', contact.email)
         }),
-        removeAnchor()
+        removeAnchor(idx)
       ])
     }),
     m('a', {onclick: ctrl.add, href: '#'}, 'Add an Attendee')
